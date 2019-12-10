@@ -1,8 +1,8 @@
 .Card {
+	background-color: grey;
+	border-radius: 1em;
 	margin: 10% 20% 30% 20%;
 	padding: 30px;
-	background-color: blue;
-	border-radius: 1em;
 }
 
 .title {

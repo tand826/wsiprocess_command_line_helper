@@ -11,7 +11,7 @@ class SaveToCard extends Component {
 
 		return (
 			<div className="Card">
-				<div className="title">{title}</div>
+				<div className="title optional">{title}</div>
 				<div className="question">{question}</div>
 				<input type="file"/>
 			</div>

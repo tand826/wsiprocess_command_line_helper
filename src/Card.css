@@ -1,18 +1,14 @@
 .Card {
-	background-color: grey;
+	border: 5px solid grey;
 	border-radius: 1em;
 	margin: 10% 20% 30% 20%;
 	padding: 30px;
 }
 
 .title {
-	margin: 30px;
+	margin: 15px;
 }
 
 .question {
-	margin: 30px;
-}
-
-.choices {
-	margin: 30px;
+	margin: 15px;
 }

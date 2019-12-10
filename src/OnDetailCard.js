@@ -11,7 +11,7 @@ class OnDetailCard extends Component {
 
 		return (
 			<div className="Card">
-				<div className="title">{title}</div>
+				<div className="title optional">{title}</div>
 				<div className="question">{question}</div>
 				<div className="onAnnotation"></div>
 				<div className="onForeground"></div>

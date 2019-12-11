@@ -32,7 +32,7 @@ export default class Card extends Component {
 				const contents = content.split(" ").slice(1,)
 				var radios = Array([])
 				contents.forEach (contentName => {
-					radios.push(<div className="content radio"><input class={className} type="radio"/>{contentName}</div>)
+					radios.push(<div className="content radio"><input name={className} class={className} type="radio"/>{contentName}</div>)
 				})
 				return radios
 			} else if (content.startsWith("checkbox")) {

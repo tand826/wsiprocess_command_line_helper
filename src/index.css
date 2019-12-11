@@ -60,3 +60,7 @@ code {
   margin: 10px;
   padding: 10px;
 }
+
+#result {
+  font-size: 0.4em;
+}

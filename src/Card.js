@@ -59,13 +59,12 @@ class Card extends Component {
 
 		function RenderResult() {
 			const wsi = document.getElementById("wsi").value
-			let task
+			var task
 			var task_radioboxes = document.getElementsByClassName("task")
-			var tasks = Array(["classification", "detection", "segmentation", "none"])
-			for (var i=1; i<task_radioboxes.length; i++) {
-				if (task_radioboxes[i].checked === true) {
-					if (i === 0){}
-					task = tasks[i]
+			const tasks = Array(["classification", "detection", "segmentation", "none"])
+			for (var i=1; i < 4; i++) {
+				if (task_radioboxes[i].checked) {
+					task = tasks[0][i]
 				}
 			}
 			const annotation = document.getElementById("annotation").value
@@ -74,8 +73,8 @@ class Card extends Component {
 			const patchheight = document.getElementById("PatchHeight").value
 			const overlapwidth = document.getElementById("OverlapWidth").value
 			const overlapheight = document.getElementById("OverlapHeight").value
-			const onannotation = document.getElementById("onAnnotation").value
-			const onforeground = document.getElementById("onforeground").value
+			const onannotation = document.getElementById("OnAnnotation").value
+			const onforeground = document.getElementById("OnForeground").value
 			const saveto = document.getElementById("saveTo").value
 			const startsample = document.getElementById("Start").checked
 			const finishedsample = document.getElementById("Finished").checked
@@ -104,7 +103,7 @@ class Card extends Component {
 			var buttons = Array([])
 			if (className === "checkSample"){
 				buttons.push(<input type="button" className="back" value="Back"/>)
-				buttons.push(<input type="button" className="Next" value="Next"/>)
+				buttons.push(<input type="button" className="Next" value="Next" onClick={RenderResult}/>)
 			} else if (className === "command"){
 				buttons.push(<input type="button" className="Next" value="Try Again?"/>)
 			} else {

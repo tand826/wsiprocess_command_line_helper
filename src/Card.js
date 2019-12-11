@@ -2,14 +2,14 @@ import React, { Component } from 'react'
 import './Card.css'
 
 
-class Card extends Component {
+export default class Card extends Component {
 	render() {
 		const {
 			title,
 			className,
 			question,
 			content,
-			state,
+			hidden,
 			required
 		} = this.props;
 
@@ -99,22 +99,54 @@ class Card extends Component {
 			document.getElementById("result").innerHTML = command
 		}
 
+		const pages = Array(["wsi", "task", "annotation", "inclusion", "sizes", "detail", "saveTo", "checkSample", "command"])
+
+		let BackCard = (page) => {
+			var currentCard = document.getElementsByClassName(page)[0]
+			currentCard.classList.add("hide")
+			currentCard.style.display = "none"
+
+			const currentIndex = pages[0].indexOf(page)
+			const backCardName = pages[0][currentIndex - 1]
+			var backCard = document.getElementsByClassName("Card " + backCardName)[0]
+			backCard.style.display = ""
+			backCard.style.opacity = 0
+			backCard.classList.add("show")
+		}
+
+		let NextCard = (page) => {
+			var currentCard = document.getElementsByClassName(page)[0]
+			currentCard.classList.add("hide")
+			currentCard.style.display = "none"
+
+			const currentIndex = pages[0].indexOf(page)
+			const nextCardName = pages[0][currentIndex + 1]
+			var nextCard = document.getElementsByClassName("Card " + nextCardName)[0]
+			nextCard.style.display = ""
+			nextCard.style.opacity = 0
+			nextCard.classList.add("show")
+		}
+
 		function Transition() {
 			var buttons = Array([])
-			if (className === "checkSample"){
-				buttons.push(<input type="button" className="back" value="Back"/>)
-				buttons.push(<input type="button" className="Next" value="Next" onClick={RenderResult}/>)
+			if (className === "wsi") {
+				buttons.push(<input type="button" className="back" value="Back" onClick={() => BackCard(className)} style={{visibility: "hidden"}}/>)
+				buttons.push(<input type="button" className="next" value="Next" onClick={() => NextCard(className)}/>)
+			} else if (className === "checkSample"){
+				buttons.push(<input type="button" className="back" value="Back" onClick={() => BackCard(className)}/>)
+				buttons.push(<input type="button" className="next" value="Next" onClick={() => NextCard(className)}/>)
 			} else if (className === "command"){
-				buttons.push(<input type="button" className="Next" value="Try Again?"/>)
+				buttons.push(<input type="button" className="back" value="Back" onClick={() => BackCard(className)} style={{visibility: "hidden"}}/>)
+				buttons.push(<input type="button" className="next" value="Try Again?" onClick={() => NextCard(className)}/>)
 			} else {
-				buttons.push(<input type="button" className="back" value="Back"/>)
-				buttons.push(<input type="button" className="Next" value="Next"/>)
+				buttons.push(<input type="button" className="back" value="Back" onClick={() => BackCard(className)}/>)
+				buttons.push(<input type="button" className="next" value="Next" onClick={() => NextCard(className)}/>)
 			}
 			return buttons
 		}
 
 		return (
-			<div className='Card' style={{ display: state ? 'none' : '' }}>
+			<div className={['Card', className].join(' ')}  style={{ display: hidden ? 'none' : '' }}>
 				<Title/>
 				<div className="question">{question}</div>
 				<Content/>
@@ -125,5 +157,3 @@ class Card extends Component {
 		);
 	}
 }
-
-export default Card

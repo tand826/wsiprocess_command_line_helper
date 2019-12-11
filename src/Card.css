@@ -1,9 +1,10 @@
 .Card {
+	background-color: #111111;
 	border: 5px solid grey;
 	border-radius: 1em;
 	margin: 10% 20% 30% 20%;
 	padding: 30px;
-	background-color: #111111;
+	width: 100%;
 }
 
 .title {
@@ -35,4 +36,30 @@
 
 .content {
 	font-size: 0.5em;
+}
+
+.show {
+	animation: fadeIn 1s 1s forwards;
+}
+
+.hide {
+	animation: fadeOut 1s forwards;
+}
+
+@keyframes fadeIn{
+	from{
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes fadeOut{
+	from {
+		opacity: 1;
+	}
+	to {
+		opacity: 0;
+	}
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import Card from './Card.js'
 
-function App() {
+export default function App() {
   return (
     <div className="App-header">
 
@@ -12,7 +12,7 @@ function App() {
           className="wsi"
           question="Select target WSI."
           content="fileSelect"
-          state=""
+          hidden=""
           required="True"
         />
         <Card
@@ -20,7 +20,7 @@ function App() {
           className="task"
           question="What task will you deal with?"
           content="radio Classification Detection Segmentation Not-Specified"
-          state=""
+          hidden="yes"
           required="True"
         />
         <Card
@@ -28,7 +28,7 @@ function App() {
           className="annotation"
           question="Did you make annotation file?"
           content="fileSelect"
-          state=""
+          hidden="yes"
           required="False"
         />
         <Card
@@ -36,7 +36,7 @@ function App() {
           className="inclusion"
           question="Did you make inclusion file?"
           content="fileSelect"
-          state=""
+          hidden="yes"
           required="False"
         />
         <Card
@@ -44,7 +44,7 @@ function App() {
           className="sizes"
           question="What size do you want the patches to be?"
           content="param PatchWidth 256 PatchHeight 256 OverlapWidth 1 OverlapHeight 1"
-          state=""
+          hidden="yes"
           required="False"
         />
         <Card
@@ -52,7 +52,7 @@ function App() {
           className="detail"
           question="How much do you want the patches to be on the annotation / foreground?"
           content="param OnAnnotation 1.0 OnForeground 1.0"
-          state=""
+          hidden="yes"
           required="False"
         />
         <Card
@@ -60,7 +60,7 @@ function App() {
           className="saveTo"
           question="Where do you want WSIPROCESS to output the result files?"
           content="directorySelect"
-          state=""
+          hidden="yes"
           required="False"
         />
         <Card
@@ -68,7 +68,7 @@ function App() {
           className="checkSample"
           question="Do you want to check the samples when the script starts / finished?"
           content="checkbox Start Finished"
-          state=""
+          hidden="yes"
           required="False"
         />
         <Card
@@ -76,7 +76,7 @@ function App() {
           className="command"
           question="Command for you!"
           content="result"
-          state=""
+          hidden="yes"
           required="Ready"
         />
       </div>
@@ -84,5 +84,3 @@ function App() {
     </div>
   );
 }
-
-export default App;

@@ -9,6 +9,7 @@ function App() {
       <div className="wsiprocess">
         <Card
           title="Whole Slide Image"
+          className="wsi"
           question="Select target WSI."
           content="fileSelect"
           state=""
@@ -16,6 +17,7 @@ function App() {
         />
         <Card
           title="Task"
+          className="task"
           question="What task will you deal with?"
           content="radio Classification Detection Segmentation Not-Specified"
           state=""
@@ -23,6 +25,7 @@ function App() {
         />
         <Card
           title="Annotation"
+          className="annotation"
           question="Did you make annotation file?"
           content="fileSelect"
           state=""
@@ -30,6 +33,7 @@ function App() {
         />
         <Card
           title="Inclusion"
+          className="inclusion"
           question="Did you make inclusion file?"
           content="fileSelect"
           state=""
@@ -37,6 +41,7 @@ function App() {
         />
         <Card
           title="Sizes"
+          className="sizes"
           question="What size do you want the patches to be?"
           content="param PatchWidth 256 PatchHeight 256 OverlapWidth 1 OverlapHeight 1"
           state=""
@@ -44,6 +49,7 @@ function App() {
         />
         <Card
           title="Detail"
+          className="detail"
           question="How much do you want the patches to be on the annotation / foreground?"
           content="param OnAnnotation 1.0 OnForeground 1.0"
           state=""
@@ -51,6 +57,7 @@ function App() {
         />
         <Card
           title="Save to"
+          className="saveTo"
           question="Where do you want WSIPROCESS to output the result files?"
           content="directorySelect"
           state=""
@@ -58,10 +65,19 @@ function App() {
         />
         <Card
           title="Check Sample"
+          className="checkSample"
           question="Do you want to check the samples when the script starts / finished?"
           content="checkbox Start Finished"
           state=""
           required="False"
+        />
+        <Card
+          title="Command"
+          className="command"
+          question="Command for you!"
+          content="result"
+          state=""
+          required="Ready"
         />
       </div>
 

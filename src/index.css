@@ -23,7 +23,6 @@ code {
 }
 
 .title:after {
-  background: #2196F3;
   border-radius: 5px 5px 0 0;
   bottom: 100%;
   color: #fff;
@@ -37,12 +36,20 @@ code {
 }
 
 .required:after {
+  background: #2196F3;
   content: '>> Required';
   font-size: 0.4em;
 }
 
 .optional:after {
+  background-color: #CFD7DF;
   content: '>> Optional';
+  font-size: 0.4em;
+}
+
+.ready:after {
+  background-color: #FFA500;
+  content: '>> Ready';
   font-size: 0.4em;
 }
 

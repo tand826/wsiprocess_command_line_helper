@@ -3,12 +3,36 @@
 	border-radius: 1em;
 	margin: 10% 20% 30% 20%;
 	padding: 30px;
+	background-color: #111111;
 }
 
 .title {
-	margin: 15px;
+	margin: 15px 0;
 }
 
 .question {
-	margin: 15px;
+	margin: 15px 0;
+}
+
+.content {
+	margin : 15px 0;
+}
+
+.transition {;
+	display: flex;
+	justify-content: space-between;
+	margin: 15px 0;
+}
+
+.param {
+	display: flex;
+	justify-content: space-between;
+}
+
+.parambox {
+	width: 100px;
+}
+
+.content {
+	font-size: 0.5em;
 }

@@ -1,71 +1,70 @@
 import React from 'react';
 import './App.css';
-import Wsi from './WsiCard.js';
-import Task from './TaskCard.js';
-import Annotation from './AnnotationCard.js';
-import Inclusion from './InclusionCard.js';
-import Size from './SizeCard.js';
-import OnDetail from './OnDetailCard.js';
-import SaveTo from './SaveToCard.js';
-import CheckSample from './CheckSampleCard.js'
+import Card from './Card.js'
 
 function App() {
   return (
     <div className="App-header">
 
       <div className="wsiprocess">
-        <Wsi
+        <Card
           title="Whole Slide Image"
-          question="Select your WSI."
-          state="on"
+          question="Select target WSI."
+          content="fileSelect"
+          state=""
           required="True"
         />
-        <Task
+        <Card
           title="Task"
           question="What task will you deal with?"
-          state="off"
+          content="radio Classification Detection Segmentation Not-Specified"
+          state=""
           required="True"
         />
-        <Annotation
+        <Card
           title="Annotation"
           question="Did you make annotation file?"
-          state="off"
+          content="fileSelect"
+          state=""
           required="False"
         />
-        <Inclusion
+        <Card
           title="Inclusion"
           question="Did you make inclusion file?"
-          state="off"
+          content="fileSelect"
+          state=""
           required="False"
         />
-        <Size
+        <Card
           title="Sizes"
           question="What size do you want the patches to be?"
-          state="off"
+          content="param PatchWidth 256 PatchHeight 256 OverlapWidth 1 OverlapHeight 1"
+          state=""
           required="False"
         />
-        <OnDetail
+        <Card
           title="Detail"
           question="How much do you want the patches to be on the annotation / foreground?"
-          state="off"
+          content="param OnAnnotation 1.0 OnForeground 1.0"
+          state=""
           required="False"
         />
-        <SaveTo
+        <Card
           title="Save to"
           question="Where do you want WSIPROCESS to output the result files?"
-          state="off"
+          content="directorySelect"
+          state=""
           required="False"
         />
-        <CheckSample
+        <Card
           title="Check Sample"
           question="Do you want to check the samples when the script starts / finished?"
-          state="off"
+          content="checkbox Start Finished"
+          state=""
           required="False"
         />
       </div>
 
-      <div className="vid2img">
-      </div>
     </div>
   );
 }

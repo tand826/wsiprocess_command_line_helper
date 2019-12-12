@@ -101,7 +101,7 @@ export default class Card extends Component {
 
 		const pages = Array(["wsi", "task", "annotation", "inclusion", "sizes", "detail", "saveTo", "checkSample", "command"])
 
-		let PreviousCard = (page) => {
+		let ToPreviousCard = (page) => {
 			var currentCard = document.getElementsByClassName(page)[0]
 			currentCard.style.display = "none"
 
@@ -113,7 +113,13 @@ export default class Card extends Component {
 			backCard.classList.add("show")
 		}
 
-		let NextCard = (page) => {
+		let ToNextCard = (page) => {
+			if (["wsi", "task"].includes(page)) {
+				if (!ValidateInput(page)) {
+					AskForInput(page)
+					return;
+				}
+			}
 			var currentCard = document.getElementsByClassName(page)[0]
 			currentCard.style.display = "none"
 
@@ -125,7 +131,26 @@ export default class Card extends Component {
 			nextCard.classList.add("show")
 		}
 
-		let FirstCard = (page) => {
+		let ValidateInput = (page) => {
+			if (page === "wsi") {
+				const wsi = document.getElementById("wsi").value
+				return wsi
+			} else if (page === "task") {
+				var task_radioboxes = document.getElementsByClassName("task")
+				for (var i=1; i < 4; i++) {
+					if (task_radioboxes[i].checked) {
+						return true
+					}
+				}
+				return false
+			}
+		}
+
+		let AskForInput = (page) => {
+			alert("You need to set a " + page + " on this card.")
+		}
+
+		let ToFirstCard = (page) => {
 			var currentCard = document.getElementsByClassName(page)[0]
 			currentCard.style.display = "none"
 
@@ -135,7 +160,7 @@ export default class Card extends Component {
 			nextCard.classList.add("show")
 		}
 
-		let FinalCard = (page) => {
+		let ToFinalCard = (page) => {
 			var currentCard = document.getElementsByClassName(page)[0]
 			currentCard.style.display = "none"
 
@@ -153,16 +178,16 @@ export default class Card extends Component {
 			var buttons = Array([])
 			if (className === "wsi") {
 				buttons.push(<input type="button" className="back" value="Back" style={{visibility: "hidden"}}/>)
-				buttons.push(<input type="button" className="next" value="Next" onClick={() => NextCard(className)}/>)
+				buttons.push(<input type="button" className="next" value="Next" onClick={() => ToNextCard(className)}/>)
 			} else if (className === "checkSample"){
-				buttons.push(<input type="button" className="back" value="Back" onClick={() => PreviousCard(className)}/>)
-				buttons.push(<input type="button" className="next" value="Next" onClick={() => FinalCard(className)}/>)
+				buttons.push(<input type="button" className="back" value="Back" onClick={() => ToPreviousCard(className)}/>)
+				buttons.push(<input type="button" className="next" value="Next" onClick={() => ToFinalCard(className)}/>)
 			} else if (className === "command"){
 				buttons.push(<input type="button" className="back" value="Back" style={{visibility: "hidden"}}/>)
-				buttons.push(<input type="button" className="next" value="Try Again?" onClick={() => FirstCard(className)}/>)
+				buttons.push(<input type="button" className="next" value="Try Again?" onClick={() => ToFirstCard(className)}/>)
 			} else {
-				buttons.push(<input type="button" className="back" value="Back" onClick={() => PreviousCard(className)}/>)
-				buttons.push(<input type="button" className="next" value="Next" onClick={() => NextCard(className)}/>)
+				buttons.push(<input type="button" className="back" value="Back" onClick={() => ToPreviousCard(className)}/>)
+				buttons.push(<input type="button" className="next" value="Next" onClick={() => ToNextCard(className)}/>)
 			}
 			return buttons
 		}

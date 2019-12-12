@@ -58,7 +58,7 @@ export default class Card extends Component {
 		}
 
 		function RenderResult() {
-			const wsi = document.getElementById("wsi").value
+			const wsi = document.getElementById("wsi").value.split("\\")[2]
 			var task
 			var task_radioboxes = document.getElementsByClassName("task")
 			const tasks = Array(["classification", "detection", "segmentation", "none"])
@@ -67,18 +67,18 @@ export default class Card extends Component {
 					task = tasks[0][i]
 				}
 			}
-			const annotation = document.getElementById("annotation").value
-			const inclusion = document.getElementById("inclusion").value
+			const annotation = document.getElementById("annotation").value.split("\\")[2]
+			const inclusion = document.getElementById("inclusion").value.split("\\")[2]
 			const patchwidth = document.getElementById("PatchWidth").value
 			const patchheight = document.getElementById("PatchHeight").value
 			const overlapwidth = document.getElementById("OverlapWidth").value
 			const overlapheight = document.getElementById("OverlapHeight").value
 			const onannotation = document.getElementById("OnAnnotation").value
 			const onforeground = document.getElementById("OnForeground").value
-			const saveto = document.getElementById("saveTo").value
+			const saveto = document.getElementById("saveTo").value.split("\\")[2]
 			const startsample = document.getElementById("Start").checked
 			const finishedsample = document.getElementById("Finished").checked
-			var command = wsi + " " + task
+			var command = "wsiprocess " +  wsi + " " + task
 			if (annotation) {
 				command += " --an " + annotation
 			}
@@ -133,7 +133,7 @@ export default class Card extends Component {
 			var task = GetTaskName()
 			console.log(task)
 			if (page === "task" && task === "detection") {
-				document.getElementById("OnAnnotation").value = 0.1
+				document.getElementById("OnAnnotation").value = 0.01
 				document.getElementById("OnForeground").value = 0.8
 			}
 		}
@@ -144,7 +144,7 @@ export default class Card extends Component {
 				return wsi
 			} else if (page === "task") {
 				var task_radioboxes = document.getElementsByClassName("task")
-				for (var i=1; i < 4; i++) {
+				for (var i=1; i < 5; i++) {
 					if (task_radioboxes[i].checked) {
 						return true
 					}
@@ -161,7 +161,7 @@ export default class Card extends Component {
 			var task
 			var task_radioboxes = document.getElementsByClassName("task")
 			const tasks = Array(["classification", "detection", "segmentation", "none"])
-			for (var i=1; i < 4; i++) {
+			for (var i=1; i < 5; i++) {
 				if (task_radioboxes[i].checked) {
 					task = tasks[0][i-1]
 				}
@@ -193,6 +193,13 @@ export default class Card extends Component {
 			RenderResult()
 		}
 
+		// not fully implemented && not used
+		let ToClipBoard = () => {
+			var copyTarget = document.getElementById("result").innerHTML
+			document.execCommand("Copy")
+			alert("Copied : " + copyTarget.value)
+		}
+
 		function Transition() {
 			var buttons = Array([])
 			if (className === "wsi") {
@@ -202,7 +209,7 @@ export default class Card extends Component {
 				buttons.push(<input type="button" className="back" value="Back" onClick={() => ToPreviousCard(className)}/>)
 				buttons.push(<input type="button" className="next" value="Next" onClick={() => ToFinalCard(className)}/>)
 			} else if (className === "command"){
-				buttons.push(<input type="button" className="back" value="Back" style={{visibility: "hidden"}}/>)
+				buttons.push(<input type="button" className="copy" value="Copy Command" onClick={() => ToClipBoard()} style={{visibility: "hidden"}}/>)
 				buttons.push(<input type="button" className="next" value="Try Again?" onClick={() => ToFirstCard(className)}/>)
 			} else {
 				buttons.push(<input type="button" className="back" value="Back" onClick={() => ToPreviousCard(className)}/>)

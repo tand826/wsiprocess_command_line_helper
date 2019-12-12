@@ -5,7 +5,6 @@ import Card from './Card.js'
 export default function App() {
   return (
     <div className="App-header">
-
       <div className="wsiprocess">
         <Card
           title="Whole Slide Image"

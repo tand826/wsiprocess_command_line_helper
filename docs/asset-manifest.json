@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/works/static/css/main.476910aa.chunk.css",
-    "main.js": "/works/static/js/main.554fd19f.chunk.js",
-    "main.js.map": "/works/static/js/main.554fd19f.chunk.js.map",
-    "runtime-main.js": "/works/static/js/runtime-main.a18eb3ad.js",
-    "runtime-main.js.map": "/works/static/js/runtime-main.a18eb3ad.js.map",
-    "static/js/2.580fd9b9.chunk.js": "/works/static/js/2.580fd9b9.chunk.js",
-    "static/js/2.580fd9b9.chunk.js.map": "/works/static/js/2.580fd9b9.chunk.js.map",
-    "index.html": "/works/index.html",
-    "precache-manifest.b6afe2401970ef98be536a176d17afbf.js": "/works/precache-manifest.b6afe2401970ef98be536a176d17afbf.js",
-    "service-worker.js": "/works/service-worker.js",
-    "static/css/main.476910aa.chunk.css.map": "/works/static/css/main.476910aa.chunk.css.map",
-    "static/js/2.580fd9b9.chunk.js.LICENSE": "/works/static/js/2.580fd9b9.chunk.js.LICENSE",
-    "static/media/logo.png": "/works/static/media/logo.efe517d4.png"
+    "main.css": "/wsiprocess_command_line_helper/static/css/main.476910aa.chunk.css",
+    "main.js": "/wsiprocess_command_line_helper/static/js/main.eb0f3785.chunk.js",
+    "main.js.map": "/wsiprocess_command_line_helper/static/js/main.eb0f3785.chunk.js.map",
+    "runtime-main.js": "/wsiprocess_command_line_helper/static/js/runtime-main.a1e1e9bf.js",
+    "runtime-main.js.map": "/wsiprocess_command_line_helper/static/js/runtime-main.a1e1e9bf.js.map",
+    "static/js/2.580fd9b9.chunk.js": "/wsiprocess_command_line_helper/static/js/2.580fd9b9.chunk.js",
+    "static/js/2.580fd9b9.chunk.js.map": "/wsiprocess_command_line_helper/static/js/2.580fd9b9.chunk.js.map",
+    "index.html": "/wsiprocess_command_line_helper/index.html",
+    "precache-manifest.d9f7378bd93c2c8b1a48199dfe7c5d6d.js": "/wsiprocess_command_line_helper/precache-manifest.d9f7378bd93c2c8b1a48199dfe7c5d6d.js",
+    "service-worker.js": "/wsiprocess_command_line_helper/service-worker.js",
+    "static/css/main.476910aa.chunk.css.map": "/wsiprocess_command_line_helper/static/css/main.476910aa.chunk.css.map",
+    "static/js/2.580fd9b9.chunk.js.LICENSE": "/wsiprocess_command_line_helper/static/js/2.580fd9b9.chunk.js.LICENSE",
+    "static/media/logo.png": "/wsiprocess_command_line_helper/static/media/logo.efe517d4.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.a18eb3ad.js",
+    "static/js/runtime-main.a1e1e9bf.js",
     "static/js/2.580fd9b9.chunk.js",
     "static/css/main.476910aa.chunk.css",
-    "static/js/main.554fd19f.chunk.js"
+    "static/js/main.eb0f3785.chunk.js"
   ]
 }

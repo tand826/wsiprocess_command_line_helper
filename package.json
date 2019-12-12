@@ -18,7 +18,7 @@
     "eject": "react-scripts eject",
     "deploy": "react-scripts build && rm -rf docs && mv build docs"
   },
-  "homepage": "https://tand826.github.io/works",
+  "homepage": "https://tand826.github.io/wsiprocess_command_line_helper",
   "eslintConfig": {
     "extends": "react-app"
   },

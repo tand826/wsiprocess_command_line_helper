@@ -64,7 +64,7 @@ export default class Card extends Component {
 			const tasks = Array(["classification", "detection", "segmentation", "none"])
 			for (var i=1; i < 4; i++) {
 				if (task_radioboxes[i].checked) {
-					task = tasks[0][i]
+					task = tasks[0][i-1]
 				}
 			}
 			const annotation = document.getElementById("annotation").value.split("\\")[2]

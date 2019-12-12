@@ -51,7 +51,7 @@ export default function App() {
           title="Detail"
           className="detail"
           question="How much do you want the patches to be on the annotation / foreground?"
-          content="param OnAnnotation 1.0 OnForeground 1.0"
+          content="param OnAnnotation 0.8 OnForeground 0.8"
           hidden="yes"
           required="False"
         />

@@ -129,6 +129,13 @@ export default class Card extends Component {
 			nextCard.style.opacity = 0
 			nextCard.style.display = ""
 			nextCard.classList.add("show")
+
+			var task = GetTaskName()
+			console.log(task)
+			if (page === "task" && task === "detection") {
+				document.getElementById("OnAnnotation").value = 0.1
+				document.getElementById("OnForeground").value = 0.8
+			}
 		}
 
 		let ValidateInput = (page) => {
@@ -148,6 +155,18 @@ export default class Card extends Component {
 
 		let AskForInput = (page) => {
 			alert("You need to set a " + page + " on this card.")
+		}
+
+		let GetTaskName = () => {
+			var task
+			var task_radioboxes = document.getElementsByClassName("task")
+			const tasks = Array(["classification", "detection", "segmentation", "none"])
+			for (var i=1; i < 4; i++) {
+				if (task_radioboxes[i].checked) {
+					task = tasks[0][i-1]
+				}
+			}
+			return task
 		}
 
 		let ToFirstCard = (page) => {

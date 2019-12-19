@@ -39,7 +39,7 @@ export default class Card extends Component {
 				const contents = content.split(" ").slice(1,)
 				var checkboxes = Array([])
 				contents.forEach (contentName => {
-					checkboxes.push(<div className="content checkbox"><input id={contentName} class={className} type="checkbox"/>{contentName}</div>)
+					checkboxes.push(<div className="content checkbox"><label><input id={contentName} class={className} type="checkbox"/>{contentName}</label></div>)
 				})
 				return checkboxes
 			} else if (content.startsWith("param")) {
@@ -78,28 +78,40 @@ export default class Card extends Component {
 			const saveto = document.getElementById("saveTo").value.split("\\")[2]
 			const startsample = document.getElementById("Start").checked
 			const finishedsample = document.getElementById("Finished").checked
+			let extractpatches
+			var extractpatches_radioboxes = document.getElementsByClassName("extractPatches")
+			var extractpatches_yes_no = Array(["yes", "no"])
+			for (var j=1; j<3; j++) {
+				if (extractpatches_radioboxes[j].checked === true) {
+					extractpatches = extractpatches_yes_no[0][j-1]
+				}
+			}
 			var command = "wsiprocess " +  wsi + " " + task
 			if (annotation) {
-				command += " --an " + annotation
+				command += " -an " + annotation
 			}
 			if (inclusion) {
-				command += " --in " + inclusion
+				command += " -in " + inclusion
 			}
-			command += " --pw " + patchwidth + " --ph " + patchheight + " --ow " + overlapwidth + " --oh " + overlapheight
-			command += " --oa " + onannotation + " --of " + onforeground
+			command += " -pw " + patchwidth + " -ph " + patchheight + " -ow " + overlapwidth + " -oh " + overlapheight
+			command += " -oa " + onannotation + " -of " + onforeground
 			if (saveto) {
-				command += " --st " + saveto
+				command += " -st " + saveto
 			}
 			if (startsample) {
-				command += " --ss"
+				command += " -ss"
 			}
 			if (finishedsample) {
-				command += " --fs "
+				command += " -fs "
+			}
+			console.log(extractpatches)
+			if (extractpatches === "yes") {
+				command += " -ep"
 			}
 			document.getElementById("result").innerHTML = command
 		}
 
-		const pages = Array(["wsi", "task", "annotation", "inclusion", "sizes", "detail", "saveTo", "checkSample", "command"])
+		const pages = Array(["wsi", "task", "annotation", "inclusion", "sizes", "detail", "saveTo", "checkSample", "extractPatches", "command"])
 
 		let ToPreviousCard = (page) => {
 			var currentCard = document.getElementsByClassName(page)[0]
@@ -131,7 +143,6 @@ export default class Card extends Component {
 			nextCard.classList.add("show")
 
 			var task = GetTaskName()
-			console.log(task)
 			if (page === "task" && task === "detection") {
 				document.getElementById("OnAnnotation").value = 0.01
 				document.getElementById("OnForeground").value = 0.8
@@ -205,7 +216,7 @@ export default class Card extends Component {
 			if (className === "wsi") {
 				buttons.push(<input type="button" className="back" value="Back" style={{visibility: "hidden"}}/>)
 				buttons.push(<input type="button" className="next" value="Next" onClick={() => ToNextCard(className)}/>)
-			} else if (className === "checkSample"){
+			} else if (className === "extractPatches"){
 				buttons.push(<input type="button" className="back" value="Back" onClick={() => ToPreviousCard(className)}/>)
 				buttons.push(<input type="button" className="next" value="Next" onClick={() => ToFinalCard(className)}/>)
 			} else if (className === "command"){

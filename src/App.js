@@ -71,6 +71,14 @@ export default function App() {
           required="False"
         />
         <Card
+          title="Extract Patches"
+          className="extractPatches"
+          question="Do you want to extract patches and save them to disk?"
+          content="radio Yes No"
+          hidden="yes"
+          required="False"
+        />
+        <Card
           title="Command"
           className="command"
           question="Command for you!"

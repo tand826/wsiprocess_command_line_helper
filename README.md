@@ -1,5 +1,5 @@
-# works
-links to my works
+# Command Line Helper for WSIPROCESS
+- help you decide your command for [wsiprocess](https://github.com/tand826/wsiprocess)
 
 # TODO
 - to jp

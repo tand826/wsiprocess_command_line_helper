@@ -10,7 +10,7 @@ export default class Card extends Component {
 			question,
 			content,
 			hidden,
-			required
+			required,
 		} = this.props;
 
 		function Title() {
@@ -54,6 +54,16 @@ export default class Card extends Component {
 				return params
 			} else if (content === "result") {
 				return <div id="result"></div>
+			}
+		}
+
+		function Help() {
+			if (title === "Sizes") {
+				return <div class="help"></div>
+			} else if (title === "Inclusion"){
+				return <div class="help"></div>
+			} else if (title === "Detail") {
+				return <div class="help"></div>
 			}
 		}
 
